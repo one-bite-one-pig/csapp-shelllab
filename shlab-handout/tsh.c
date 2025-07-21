@@ -394,6 +394,7 @@ void sigchld_handler(int sig)
             deletejob(jobs,pid);  
             sigprocmask (SIG_SETMASK, &prev_all, NULL) ; 
         }
+        
         else if(WIFSIGNALED(status)){
             struct job_t* job = getjobpid(jobs, pid);
             printf("Job [%d] (%d) terminated by signal 2\n", job->jid, job->pid);
